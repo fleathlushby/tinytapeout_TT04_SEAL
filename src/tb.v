@@ -27,7 +27,7 @@ module tb ();
     wire [7:0] Sum;
     wire Cout;
 
-    tt_um_parallel_adder dut (
+    tt_um_parallel_adder dut_adder (
     // include power ports for the Gate Level test
     `ifdef GL_TEST
         .VPWR( 1'b1),
