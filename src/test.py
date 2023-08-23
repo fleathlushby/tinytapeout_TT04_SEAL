@@ -13,9 +13,9 @@ async def rca_adder(dut):
     # dut._log.info("reset")
     # dut.rst_n.value = 0
     # set the compare value
-    dut.ui_in1.value = 76
-    dut.ui_in2.value = 96
-    dut.ui_in3.value = 0
+    dut.ui_in.value = 76
+    dut.uio_in.value = 96
+    dut.uio_oe.value = 0
     # await ClockCycles(dut.clk, 10)
     # dut.rst_n.value = 1
 
@@ -34,9 +34,9 @@ async def rca_adder(dut):
     # reset
     # dut.rst_n.value = 0
     # set a different compare value
-    dut.ui_in1.value = 3
-    dut.ui_in2.value = 100
-    dut.ui_in3.value = 1
+    dut.ui_in.value = 3
+    dut.uio_in.value = 100
+    dut.uio_oe.value = 1
     # await ClockCycles(dut.clk, 10)
     # dut.rst_n.value = 1
 
