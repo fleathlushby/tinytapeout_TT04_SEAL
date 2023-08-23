@@ -20,24 +20,24 @@ module tb ();
     //reg  clk;
     //reg  rst_n;
     //reg  ena;
-    reg  [7:0] A;
-    reg  [7:0] B;
-    reg  Cin;
+    reg  [7:0] ui_in1;
+    reg  [7:0] ui_in2;
+    reg  ui_in3;
     
-    wire [7:0] Sum;
-    wire Cout;
+    wire [7:0] uo_out1;
+    wire uo_out2;
 
-    tt_um_parallel_adder dut_adder (
+    tt_um_parallel_adder tt_um_parallel_adder (
     // include power ports for the Gate Level test
     `ifdef GL_TEST
         .VPWR( 1'b1),
         .VGND( 1'b0),
     `endif
-        .A      (A),    
-        .B     (B),   
-        .Cin     (Cin),  
-        .Sum    (Sum),  
-        .Cout     (Cout)
+        .ui_in1      (ui_in1),    
+        .ui_in2     (ui_in2),   
+        .ui_in3     (ui_in3),  
+        .uo_out1    (uo_out1),  
+        .uo_out2     (uo_out2)
         );
 
 endmodule
