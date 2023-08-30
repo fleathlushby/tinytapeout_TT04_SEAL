@@ -3,8 +3,8 @@ module tt_um_parallel_adder (
     input wire [2:0] B,
     input wire Cin,
     input wire clk, rst,
-    output wire [2:0] Sum,
-    output wire Cout
+    output reg [2:0] Sum,
+    output reg Cout
 );
 
 wire [2:0] sum_bits;
