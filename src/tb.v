@@ -17,15 +17,15 @@ module tb ();
     end
 
     // wire up the inputs and outputs
-    //reg  clk;
-    //reg  rst_n;
+    reg  clk;
+    reg  rst;
     //reg  ena;
-    reg  [7:0] ui_in;
-    reg  [7:0] uio_in;
-    reg  uio_oe;
+    reg  [2:0] A;
+    reg  [2:0] B;
+    reg  Cin;
     
-    wire [7:0] uo_out;
-    wire uio_out;
+    wire [2:0] Sum;
+    wire Cout;
 
     tt_um_parallel_adder tt_um_parallel_adder (
     // include power ports for the Gate Level test
@@ -33,11 +33,13 @@ module tb ();
         .VPWR( 1'b1),
         .VGND( 1'b0),
     `endif
-        .ui_in      (ui_in),    
-        .uio_in     (uio_in),   
-        .uio_oe     (uio_oe),  
-        .uo_out    (uo_out),  
-        .uio_out     (uio_out)
+        .A      (A),    
+        .B     (B),   
+        .Cin     (Cin),  
+        .Sum    (Sum),  
+        .Cout     (Cout),
+        .clk     (clk),
+        .rst    (rst)
         );
 
 endmodule
