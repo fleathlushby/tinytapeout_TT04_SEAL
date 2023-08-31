@@ -17,12 +17,12 @@ module tb ();
     end
 
     // wire up the inputs and outputs
-    reg  clk;
-    reg  rst;
+    wire  clk;
+    wire  rst;
     //reg  ena;
-    reg  [2:0] A;
-    reg  [2:0] B;
-    reg  Cin;
+    wire  [2:0] A;
+    wire  [2:0] B;
+    wire  Cin;
     
     wire [2:0] Sum;
     wire Cout;
