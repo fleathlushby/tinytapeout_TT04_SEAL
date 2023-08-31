@@ -31,7 +31,8 @@ module tb ();
     tt_um_parallel_adder tt_um_parallel_adder (
     // include power ports for the Gate Level test
         .VPWR( 1'b1),
-        .VGND( 1'b0),
+        .VGND( 1'b0)
+    )
     `else
     tt_um_parallel_adder #(.MAX_COUNT(1000)) tt_um_parallel_adder (
     `endif
