@@ -1,4 +1,4 @@
-module tt_um_parallel_adder (
+module tt_um_parallel_adder #(parameter MAX_COUNT=1000) (
     input wire [2:0] A,
     input wire [2:0] B,
     input wire Cin,
@@ -10,6 +10,7 @@ module tt_um_parallel_adder (
 wire [2:0] sum_bits;
 wire [1:0] carry;
 wire c_out;
+reg [9:0] count;
 
 fulladder fa0 (.A(A[0]), .B(B[0]), .Cin(Cin), .Sum(sum_bits[0]), .Cout(carry[0]));
 fulladder fa1 (.A(A[1]), .B(B[1]), .Cin(carry[0]), .Sum(sum_bits[1]), .Cout(carry[1]));
@@ -19,9 +20,17 @@ always @ (posedge clk) begin
   if (!rst) begin
     Sum <= 3'd0;
     Cout <= 1'd0;
+    count <= 10'd0;
   end else begin
-    Sum <= sum_bits;
-    Cout <= c_out;
+      if (count <= MAX_COUNT) begin
+        count <= count + 1;
+        Sum <= sum_bits;
+        Cout <= c_out;
+      end else if (count == MAX_COUNT) begin
+        count <= 10'd0;
+        Sum <= 3'd0;
+        Cout <= 1'd0;
+      end
   end
 end
 
