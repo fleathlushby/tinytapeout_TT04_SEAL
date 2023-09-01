@@ -1,3 +1,5 @@
+`default_nettype none
+
 module tt_um_parallel_adder #(parameter MAX_COUNT=1000) (
     input wire [2:0] A,
     input wire [2:0] B,
