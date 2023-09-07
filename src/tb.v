@@ -17,12 +17,14 @@ module tb ();
     end
 
     // wire up the inputs and outputs
-    wire  clk;
-    wire  rst;
-    //reg  ena;
-    wire  [2:0] A;
-    wire  [2:0] B;
-    wire  Cin;
+    wire [7:0] uo_out;
+    wire [7:0] ui_in;
+    wire [7:0] uio_out;
+    wire [7:0] uio_in;
+    wire [7:0] uio_oe;
+    wire clk;
+    wire rst_n;
+    wire ena;
     
     wire [2:0] Sum;
     wire Cout;
@@ -36,13 +38,14 @@ module tb ();
     `else
     tt_um_parallel_adder #(.MAX_COUNT(1000)) tt_um_parallel_adder (
     `endif
-        .A      (A),    
-        .B     (B),   
-        .Cin     (Cin),  
-        .Sum    (Sum),  
-        .Cout     (Cout),
-        .clk     (clk),
-        .rst    (rst)
+        .ui_in      (ui_in),    // Dedicated inputs
+        .uo_out     (uo_out),   // Dedicated outputs
+        .uio_in     (uio_in),   // IOs: Input path
+        .uio_out    (uio_out),  // IOs: Output path
+        .uio_oe     (uio_oe),   // IOs: Enable path (active high: 0=input, 1=output)
+        .ena        (ena),      // enable - goes high when design is selected
+        .clk        (clk),      // clock
+        .rst_n      (rst_n)     // not reset
         );
 
 endmodule
