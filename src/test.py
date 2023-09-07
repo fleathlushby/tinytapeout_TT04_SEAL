@@ -2,9 +2,9 @@ import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import RisingEdge, FallingEdge, Timer, ClockCycles
 
-input_A = [0,1,2,3,4,5,6,7,5,6]
-input_B = [7,6,5,4,3,2,1,0,5,7]
-input_Cin = 0
+# input_A = [0,1,2,3,4,5,6,7,5,6]
+# input_B = [7,6,5,4,3,2,1,0,5,7]
+# input_Cin = 0
 Sum = [7,7,7,7,7,7,7,7,10,13]
 
 @cocotb.test()
@@ -22,8 +22,8 @@ async def test_rca(dut):
     for i in range(10):
         dut._log.info("check input {}".format(i))
         await ClockCycles(dut.clk, 1000)
-        dut.ui_in[6:4].value = input_A[i]
-        dut.ui_in[3:1].value = input_B[i]
-        dut.ui_in[0].value = input_Cin
+        dut.ui_in[6:4].value = 0b101
+        dut.ui_in[3:1].value = 0b010
+        dut.ui_in[0].value = 0b0
         assert int(dut.uo_out.value) == Sum[i]
         assert dut.uio_oe == 0xFF
