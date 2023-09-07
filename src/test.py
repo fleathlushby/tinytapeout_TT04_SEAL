@@ -22,8 +22,8 @@ async def test_rca(dut):
     for i in range(10):
         dut._log.info("check input {}".format(i))
         await ClockCycles(dut.clk, 1000)
-        dut.ui_in[6:4].value = 0b101
-        dut.ui_in[3:1].value = 0b010
-        dut.ui_in[0].value = 0b0
+        # dut.ui_in[6:4].value = 0b101
+        # dut.ui_in[3:1].value = 0b010
+        dut.ui_in.value = 0b00111111
         # assert int(dut.uo_out.value) == Sum[i]
         assert dut.uio_oe == 0xFF
