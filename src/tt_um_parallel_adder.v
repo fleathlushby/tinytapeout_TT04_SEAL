@@ -44,7 +44,7 @@ end
 
 // instantiate adder
 fulladder fa0 (.A(ui_in[4]), .B(ui_in[1]), .Cin(ui_in[0]), .Sum(sum_bits[0]), .Cout(carry[0]));
-fulladder fa0 (.A(ui_in[5]), .B(ui_in[2]), .Cin(carry[0]), .Sum(sum_bits[1]), .Cout(carry[1]));
-fulladder fa0 (.A(ui_in[6]), .B(ui_in[3]), .Cin(carry[1]), .Sum(sum_bits[2]), .Cout(c_out));
+fulladder fa1 (.A(ui_in[5]), .B(ui_in[2]), .Cin(carry[0]), .Sum(sum_bits[1]), .Cout(carry[1]));
+fulladder fa2 (.A(ui_in[6]), .B(ui_in[3]), .Cin(carry[1]), .Sum(sum_bits[2]), .Cout(c_out));
     
 endmodule
