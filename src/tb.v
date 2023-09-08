@@ -37,7 +37,6 @@ module tb ();
     )
     `else
     tt_um_parallel_adder #(.MAX_COUNT(1000)) tt_um_parallel_adder (
-    `endif
         .ui_in      (ui_in),    // Dedicated inputs
         .uo_out     (uo_out),   // Dedicated outputs
         .uio_in     (uio_in),   // IOs: Input path
@@ -47,5 +46,5 @@ module tb ();
         .clk        (clk),      // clock
         .rst_n      (rst_n)     // not reset
         );
-
+    `endif
 endmodule
