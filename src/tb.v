@@ -29,14 +29,12 @@ module tb ();
     // wire [2:0] Sum;
     // wire Cout;
 
+    tt_um_parallel_adder #(.MAX_COUNT(1000)) tt_um_parallel_adder (
     `ifdef GL_TEST
-    tt_um_parallel_adder tt_um_parallel_adder (
     // include power ports for the Gate Level test
         .VPWR( 1'b1),
-        .VGND( 1'b0)
-    )
+        .VGND( 1'b0),
     `else
-    tt_um_parallel_adder #(.MAX_COUNT(1000)) tt_um_parallel_adder (
         .ui_in      (ui_in),    // Dedicated inputs
         .uo_out     (uo_out),   // Dedicated outputs
         .uio_in     (uio_in),   // IOs: Input path
