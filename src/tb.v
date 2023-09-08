@@ -26,8 +26,8 @@ module tb ();
     wire rst_n;
     wire ena;
     
-    wire [2:0] Sum;
-    wire Cout;
+    // wire [2:0] Sum;
+    // wire Cout;
 
     `ifdef GL_TEST
     tt_um_parallel_adder tt_um_parallel_adder (
